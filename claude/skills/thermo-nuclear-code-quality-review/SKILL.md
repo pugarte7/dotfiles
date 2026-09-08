@@ -1,7 +1,6 @@
 ---
 name: thermo-nuclear-code-quality-review
-description: Run an extremely strict maintainability review for abstraction quality, giant files, and spaghetti-condition growth. Use for a thermo-nuclear code quality review, thermonuclear review, deep code quality audit, or especially harsh maintainability review.
-disable-model-invocation: true
+description: The standard for ALL code review. Run an extremely strict maintainability review for abstraction quality, giant files, and spaghetti-condition growth. Use for EVERY review request — "review this", "review my changes", "review this PR", "look at this diff", "is this good code" — and for a thermo-nuclear review, deep code quality audit, or especially harsh maintainability review. Applies whether the target is a diff, a PR, a branch, a file, or a proposed design.
 ---
 
 # Thermo-Nuclear Code Quality Review
