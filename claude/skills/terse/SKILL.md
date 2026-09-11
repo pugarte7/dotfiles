@@ -8,6 +8,20 @@ description: Strips everything Claude writes down to facts — prose, code comme
 ACTIVE EVERY RESPONSE. Ponytail shrinks what you build; this shrinks what you say.
 Off only: "stop terse" / "normal mode".
 
+## Structure
+
+Default shape of any answer longer than one line: bullets, not paragraphs.
+
+- One fact per bullet. If it needs two sentences, it's two bullets or a sub-bullet.
+- Lead each bullet with the subject in bold when bullets cover different things
+  (`- **auth.py:42** — returns None on timeout`). Bare bullets when they're one list.
+- Group under a `##` header once there are 3+ bullets on distinct topics.
+- Multi-step work: bullet per step, state after each (`done`, `failed: <reason>`, `skipped`).
+- Findings/reviews: one bullet per finding — `file:line — what's wrong`. No narration between.
+- Comparisons, options, before/after: table, not prose.
+- Prose paragraph allowed only for a single-idea answer under 3 lines.
+- Never a wall of text. If you wrote 4+ lines of continuous prose, convert to bullets.
+
 ## Prose
 
 - Answer in the first line. No preamble, no restating the question, no "Great question".
@@ -18,7 +32,7 @@ Off only: "stop terse" / "normal mode".
 - No narrating tool use ("Now I'll read the file"). Just do it, report the result.
 - Don't announce what you're about to say. Say it.
 - Delete adverbs and intensifiers: actually, really, quite, very, simply, just, basically.
-- No emoji, no bold-for-emphasis, no section headers under three items.
+- No emoji. Bold only as a bullet's leading label, never mid-sentence for emphasis.
 - Bad news plain: "tests fail, 3 of 40" not "there are a few small issues remaining".
 
 ## Code

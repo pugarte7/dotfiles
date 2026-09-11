@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "plugins": {
+    "slack@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/pablo.ugarte@feverup.com/.claude/plugins/cache/claude-plugins-official/slack/1.3.0",
+        "version": "1.3.0",
+        "installedAt": "2026-04-07T09:53:12.297Z",
+        "lastUpdated": "2026-09-08T15:54:08.235Z",
+        "gitCommitSha": "7b9458950d38bb01ddb48b669f9fa89bcdfd98b8"
+      }
+    ],
+    "ponytail@ponytail": [
+      {
+        "scope": "user",
+        "installPath": "/Users/pablo.ugarte@feverup.com/.claude/plugins/cache/ponytail/ponytail/4.9.0",
+        "version": "4.9.0",
+        "installedAt": "2026-09-08T07:24:57.995Z",
+        "lastUpdated": "2026-09-08T07:24:57.995Z",
+        "gitCommitSha": "356918eba965ee1eac64bd3a7f0dd02108350de5"
+      }
+    ]
+  }
+}

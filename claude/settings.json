@@ -1,0 +1,64 @@
+{
+  "model": "opus[1m]",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|mcp__github__create_pull_request",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"hook fired\" >> /tmp/claude-hook-check.txt; bash \"$HOME/.claude/hooks/pr-review-gate.sh\"",
+            "timeout": 10,
+            "statusMessage": "Checking PR review gate..."
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"$HOME/.claude/skills/terse/SKILL.md\"",
+            "timeout": 5,
+            "statusMessage": "Loading terse mode..."
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"$HOME/.claude/skills/terse/SKILL.md\"",
+            "timeout": 5,
+            "statusMessage": "Loading terse mode..."
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"$(ls -d \"$HOME\"/.claude/plugins/cache/ponytail/ponytail/*/hooks/ponytail-statusline.sh | tail -1)\""
+  },
+  "enabledPlugins": {
+    "slack@claude-plugins-official": true,
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "outputStyle": "human-direct",
+  "effortLevel": "xhigh",
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "skipAutoPermissionPrompt": true
+}
