@@ -42,6 +42,8 @@ Default shape of any answer longer than one line: bullets, not paragraphs.
 - No TODO you don't intend to do.
 - Commit subject: imperative, under 60 chars, no body unless the why isn't obvious.
 - PR description: what changed, why, how to verify. Three lines beats three paragraphs.
+- Hard cap, enforced by `~/.claude/hooks/pr-review-gate.sh`: PR body, commit message, PR or
+  issue comment, Slack message = 15 non-empty lines max, no em dashes. Over = denied, rewrite.
 - Log/error strings: what broke and the value that broke it. No apologies to the user.
 
 ## Never cut
