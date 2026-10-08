@@ -1,0 +1,176 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Windows-style shortcuts: app launcher & window snapping",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "1",
+                                    "modifiers": {
+                                        "mandatory": ["right_option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a Kitty" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "2",
+                                    "modifiers": {
+                                        "mandatory": ["right_option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a Slack" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "3",
+                                    "modifiers": {
+                                        "mandatory": ["right_option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a Safari" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "4",
+                                    "modifiers": {
+                                        "mandatory": ["right_option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a Spotify" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "5",
+                                    "modifiers": {
+                                        "mandatory": ["right_option"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a DBeaver" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Snap window to left half",
+                                "from": {
+                                    "key_code": "left_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Finder\" to set {L,T,R,B} to bounds of window of desktop' -e 'tell application \"System Events\"' -e 'set fp to first process whose frontmost is true' -e 'set position of first window of fp to {L, T + 25}' -e 'set size of first window of fp to {(R - L) / 2, B - T - 25}' -e 'end tell'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Snap window to right half",
+                                "from": {
+                                    "key_code": "right_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Finder\" to set {L,T,R,B} to bounds of window of desktop' -e 'tell application \"System Events\"' -e 'set fp to first process whose frontmost is true' -e 'set position of first window of fp to {(R - L) / 2, T + 25}' -e 'set size of first window of fp to {(R - L) / 2, B - T - 25}' -e 'end tell'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Maximize window",
+                                "from": {
+                                    "key_code": "up_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Finder\" to set {L,T,R,B} to bounds of window of desktop' -e 'tell application \"System Events\"' -e 'set fp to first process whose frontmost is true' -e 'set position of first window of fp to {L, T + 25}' -e 'set size of first window of fp to {R - L, B - T - 25}' -e 'end tell'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Center and restore window to 80%",
+                                "from": {
+                                    "key_code": "down_arrow",
+                                    "modifiers": {
+                                        "mandatory": ["command", "control", "shift"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Finder\" to set {L,T,R,B} to bounds of window of desktop' -e 'tell application \"System Events\"' -e 'set fp to first process whose frontmost is true' -e 'set SW to R - L' -e 'set SH to B - T - 25' -e 'set NW to (SW * 4 / 5) as integer' -e 'set NH to (SH * 4 / 5) as integer' -e 'set position of first window of fp to {(SW - NW) / 2, T + 25 + (SH - NH) / 2}' -e 'set size of first window of fp to {NW, NH}' -e 'end tell'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Mouse button 4 → back",
+                                "from": { "pointing_button": "button4" },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Mouse button 5 → forward",
+                                "from": { "pointing_button": "button5" },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f11" },
+                            "to": [{ "key_code": "f11" }]
+                        }
+                    ],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 33,
+                        "vendor_id": 1278
+                    }
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 62967,
+                        "vendor_id": 13652
+                    },
+                    "ignore_vendor_events": true
+                },
+                {
+                    "identifiers": {
+                        "is_pointing_device": true,
+                        "product_id": 62967,
+                        "vendor_id": 13652
+                    },
+                    "ignore": false,
+                    "ignore_vendor_events": true
+                }
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+        }
+    ]
+}
