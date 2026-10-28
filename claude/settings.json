@@ -1,15 +1,25 @@
 {
-  "model": "opus[1m]",
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash|mcp__github__create_pull_request",
+        "matcher": "Bash|mcp__github__.*|mcp__plugin_slack_slack__slack_(send|schedule)_message.*",
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"hook fired\" >> /tmp/claude-hook-check.txt; bash \"$HOME/.claude/hooks/pr-review-gate.sh\"",
+            "command": "bash \"$HOME/.claude/hooks/pr-review-gate.sh\"",
             "timeout": 10,
             "statusMessage": "Checking PR review gate..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/docker-cleanup.sh\"",
+            "timeout": 10
           }
         ]
       }
@@ -38,6 +48,42 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/docker-cleanup.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/docker-cleanup.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/docker-cleanup.sh\"",
+            "timeout": 10,
+            "statusMessage": "Stopping containers this session started..."
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
@@ -58,6 +104,14 @@
   },
   "outputStyle": "human-direct",
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "xhigh"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
   "skipWorkflowUsageWarning": true,
   "theme": "dark",
   "skipAutoPermissionPrompt": true

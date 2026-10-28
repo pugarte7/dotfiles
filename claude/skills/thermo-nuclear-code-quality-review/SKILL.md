@@ -9,6 +9,18 @@ Use this skill for an unusually strict review focused on implementation quality,
 
 Above all, this skill should push the reviewer to be **ambitious** about code structure. Do not merely identify local cleanup opportunities. Actively search for "code judo" moves: restructurings that preserve behavior while making the implementation dramatically simpler, smaller, more direct, and more elegant.
 
+## Step 0: Read the Repo's Own Conventions
+
+Do this before reading a single line of the diff, and again before any PR is opened or updated:
+
+- `AGENTS.md`, `CLAUDE.md`, `CONTRIBUTING.md` at the repo root
+- every `SKILL.md` under `.claude/skills/` or `.cursor/skills/` covering style, testing, commits or PR bodies
+- the linter and formatter config actually in force (`.flake8`, `pyproject.toml`, `.editorconfig`, `.eslintrc`)
+
+Then check the diff against them. A written repo rule outranks personal taste and outranks this skill: where they disagree, the repo wins. Breaking one is a finding with the rule quoted and its file named, not a nit, and it blocks approval.
+
+Common ones that get missed because the code still works: docstring and comment policy, type-hint style, naming, test layout, commit and PR body format.
+
 ## Core Prompt
 
 Start from this baseline:
@@ -170,6 +182,7 @@ Prefer a smaller number of high-conviction comments over a long list of cosmetic
 Do not approve merely because behavior seems correct.
 The bar for approval is:
 
+- no violation of a rule written in the repo's own convention docs
 - no clear structural regression
 - no obvious missed opportunity to make the implementation dramatically simpler when such a path is visible
 - no unjustified file-size explosion
