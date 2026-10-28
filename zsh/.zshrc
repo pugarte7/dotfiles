@@ -117,3 +117,6 @@ export PATH="/opt/homebrew/bin:$PATH"
 # For ASDF library manager
 export PATH="$HOME/.asdf/shims:$HOME/.asdf/bin:$PATH"
 
+
+# herdr: alt+i closes the alt+i popup
+[[ -n $HERDR_POPUP ]] && { _herdr_popup_exit() { exit }; zle -N _herdr_popup_exit; bindkey "^[i" _herdr_popup_exit }

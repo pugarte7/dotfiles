@@ -7,6 +7,7 @@ My personal collection of curated dotfiles. Kitty & Neovim based workflow.
 | Path | Contents |
 | --- | --- |
 | `claude/` | Claude Code setup: `settings.json`, `CLAUDE.md`, hooks, skills, plugins |
+| `herdr/` | Herdr config: NvChad-style keys, bearded-arc colors |
 | `karabiner/` | Karabiner-Elements keyboard remapping |
 | `kitty/` | Kitty terminal config and theme |
 | `nvim/` | Neovim config (NvChad + lazy.nvim) |
@@ -27,6 +28,7 @@ ln -s "$PWD/claude/CLAUDE.md"     ~/.claude/CLAUDE.md
 ln -s "$PWD/claude/settings.json" ~/.claude/settings.json
 ln -s "$PWD/claude/skills"        ~/.claude/skills
 ln -s "$PWD/claude/hooks"         ~/.claude/hooks
+ln -s "$PWD/herdr/config.toml"    ~/.config/herdr/config.toml
 ln -s "$PWD/zsh/.zshrc"           ~/.zshrc
 ln -s "$PWD/zsh/.p10k.zsh"        ~/.p10k.zsh
 ln -s "$PWD/wezterm/.wezterm.lua" ~/.wezterm.lua
@@ -34,6 +36,6 @@ ln -s "$PWD/wezterm/.wezterm.lua" ~/.wezterm.lua
 
 `~/.claude` itself is Claude Code state (history, projects, cache), so link the files
 inside it rather than the directory. `claude/plugins/` is reference only, see
-claude/README.md.
+claude/README.md. Same for `~/.config/herdr`, which holds sockets, logs and sessions.
 
 Neovim will bootstrap lazy.nvim and install plugins on first launch.

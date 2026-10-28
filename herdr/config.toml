@@ -1,0 +1,70 @@
+onboarding = false
+
+# Prefix = <C-w>, standing in for NvChad's <leader> (space would block typing).
+[keys]
+prefix = "ctrl+w"
+split_horizontal = "prefix+s"
+settings = "prefix+comma"
+detach = ""
+new_tab = "prefix+t"
+rename_tab = "prefix+r"
+new_workspace = "prefix+n"
+resize_mode = "prefix+shift+r"
+reload_config = ""
+next_tab = "prefix+tab"
+previous_tab = "prefix+shift+tab"
+close_tab = ["prefix+x", "prefix+shift+x"]
+close_pane = ["prefix+q", "prefix+c"]
+toggle_sidebar = "ctrl+n"
+cycle_pane_next = ""
+cycle_pane_previous = ""
+goto = ["prefix+g", "prefix+f"]
+edit_scrollback = "prefix+shift+e"
+copy_mode = ["prefix+[", "prefix+ctrl+x"]
+# NvChad <C-h/j/k/l>; panes no longer receive these keys
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+
+# NvChad <A-i>; alt+i inside the popup closes it via ~/.zshrc
+[[keys.command]]
+key = "alt+i"
+type = "popup"
+command = "export HERDR_POPUP=1; exec \"${SHELL:-sh}\""
+description = "floating terminal"
+width = "80%"
+height = "80%"
+
+# NvChad <leader>e: oil on the focused pane's cwd
+[[keys.command]]
+key = "prefix+e"
+type = "popup"
+command = "nvim ."
+description = "nvim (oil)"
+width = "90%"
+height = "90%"
+
+# bearded-arc (NvChad base46)
+[theme]
+name = "tokyo-night"
+
+[theme.custom]
+accent = "#69C3FF"
+sidebar_bg = "#19212e"
+active_row_bg = "#262e3d"
+selection_bg = "#303847"
+surface0 = "#262e3d"
+surface1 = "#303847"
+surface_dim = "#232b3a"
+overlay0 = "#444c5b"
+overlay1 = "#58606f"
+text = "#c3cfd9"
+subtext0 = "#a1adb7"
+mauve = "#bd93ff"
+green = "#3CEC85"
+yellow = "#EACD61"
+red = "#FF738A"
+blue = "#69C3FF"
+teal = "#12c7c4"
+peach = "#FF955C"
