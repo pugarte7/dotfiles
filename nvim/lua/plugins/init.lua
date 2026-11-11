@@ -33,6 +33,12 @@ return {
   },
 
   {
+    "ChmaraX/herdr-nvim",
+    lazy = false,
+    opts = {},
+  },
+
+  {
     import = "plugins.mason",
   },
 
