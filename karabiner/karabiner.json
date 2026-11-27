@@ -110,6 +110,20 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "Ctrl+Backspace → delete word",
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Mouse button 4 → back",
                                 "from": { "pointing_button": "button4" },
                                 "to": [
